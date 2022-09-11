@@ -35,4 +35,8 @@ public class ListItemController {
         listItemRepository.deleteById(id);
     }
 
+    @DeleteMapping("listitems/clearlist")
+    public void clearList() {
+        listItemRepository.deleteAll();
+    }
 }
