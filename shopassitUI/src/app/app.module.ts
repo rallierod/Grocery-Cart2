@@ -23,6 +23,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginComponent } from './login/login.component';
 import { ListItemComponent } from './list-item/list-item.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 
@@ -53,7 +54,8 @@ import { ListItemComponent } from './list-item/list-item.component';
     MatIconModule,
     MatFormFieldModule,
     MatGridListModule,
-    MatSidenavModule
+    MatSidenavModule,
+    DragDropModule
   ],
   
   providers: [

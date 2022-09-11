@@ -2,3 +2,7 @@
 <ul *ngFor="let listItem of list">
     <li>{{listItem}}</li>
 </ul>
+
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let listItem of list" cdkDrag>{{listItem}} <button>Remove</button></div>
+</div>

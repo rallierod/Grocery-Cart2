@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ListItemService } from '../list-item.service';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 export class ListItem {
   constructor(
@@ -41,8 +42,11 @@ export class ListItemComponent implements OnInit {
         }
         console.log(this.list);
       }
-    );
-    
+    );   
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.list, event.previousIndex, event.currentIndex);
   }
 
 }
