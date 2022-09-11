@@ -22,6 +22,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginComponent } from './login/login.component';
+import { ListComponent } from './list/list.component';
 
 
 
@@ -35,7 +36,8 @@ import { LoginComponent } from './login/login.component';
     AddNewComponent,
     ImportRecipeComponent,
     CreateUserComponent,
-    LoginComponent
+    LoginComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

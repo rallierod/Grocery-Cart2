@@ -32,13 +32,6 @@ public class  RecipeController {
         return recipeRepository.findAll();
     }
 
-    @GetMapping("recipes/{id}")
-    public Recipe getRecipeById(@PathVariable("id") Integer id) {
-        Optional<Recipe> recipeResult = recipeRepository.findById(id);
-        Recipe recipe = recipeResult.get();
-        return recipe;
-    }
-
     @PostMapping("recipes/addnew")
     public void addRecipe(@RequestBody Recipe recipe) {
         recipeRepository.save(recipe);

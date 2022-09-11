@@ -37,12 +37,5 @@ public class Step {
         this.step = step;
     }
 
-/*
-    public List<Recipe> getRecipes() {
-        return recipes;
-    }
-
- */
-
     //need toString and equals/hashCode
 }

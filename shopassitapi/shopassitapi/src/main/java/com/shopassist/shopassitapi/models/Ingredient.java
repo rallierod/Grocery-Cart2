@@ -58,11 +58,5 @@ public class Ingredient {
         this.ingredient = ingredient;
     }
 
-/*
-    public List<Recipe> getRecipes() {
-        return recipes;
-    }
-*/
-
     //need toString and equals/hashCode
 }

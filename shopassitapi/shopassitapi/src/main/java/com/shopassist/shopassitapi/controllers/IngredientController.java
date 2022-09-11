@@ -17,15 +17,8 @@ public class IngredientController {
     private IngredientRepository ingredientRepository;
 
     @GetMapping("ingredients")
-    public List<Ingredient> getIngredient() {
+    public List<Ingredient> getIngredients() {
         return ingredientRepository.findAll();
-    }
-
-    @GetMapping("ingredients/{id}")
-    public Ingredient getIngredientById(@PathVariable("id") Integer id) {
-        Optional<Ingredient> ingredientResult = ingredientRepository.findById(id);
-        Ingredient ingredient = ingredientResult.get();
-        return ingredient;
     }
 
     @PostMapping("ingredients/addnew")

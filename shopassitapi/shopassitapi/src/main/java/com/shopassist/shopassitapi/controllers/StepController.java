@@ -21,13 +21,6 @@ public class StepController {
         return stepRepository.findAll();
     }
 
-    @GetMapping("steps/{id}")
-    public Step getStepById(@PathVariable("id") Integer id) {
-        Optional<Step> stepResult = stepRepository.findById(id);
-        Step step = stepResult.get();
-        return step;
-    }
-
     @PostMapping("steps/addnew")
     public void addStep(@RequestBody Step step) {
         stepRepository.save(step);

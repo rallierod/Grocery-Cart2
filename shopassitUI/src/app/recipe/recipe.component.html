@@ -49,6 +49,9 @@
       <li *ngFor="let step of stepsDisplay">{{step.step}}</li>
     </ol>
 
+    <button class="btn btn-sm btn-warning">
+      <i class="fa fa-plus"></i>Add to List</button>
+
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
