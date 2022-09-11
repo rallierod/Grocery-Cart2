@@ -1,4 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ListItemService } from '../list-item.service';
+
+export class ListItem {
+  constructor(
+    public id: number,
+    public listItem: string
+  ) {
+  }
+}
 
 @Component({
   selector: 'app-list-item',
@@ -7,9 +18,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListItemComponent implements OnInit {
 
-  constructor() { }
+  getList: ListItem[] = [];
+  list: string[] = [];
+
+  constructor(private httpClient: HttpClient, private modalService: NgbModal, private listItemService: ListItemService) { }
 
   ngOnInit(): void {
+    this.getListItems();
+  }
+
+  getListItems(){
+    this.listItemService.getListItems().subscribe(
+      response => {
+        console.log(response);
+        this.getList = response;
+        for(let i = 0; i < this.getList.length; i++) {
+          if(this.list.includes(this.getList[i].listItem)) {
+            //do nothing
+          } else {
+            this.list.push(this.getList[i].listItem);
+          }
+        }
+        console.log(this.list);
+      }
+    );
+    
   }
 
 }

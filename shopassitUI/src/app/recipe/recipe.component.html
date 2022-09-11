@@ -21,7 +21,7 @@
             <i class="fa fa-search"></i>Details</button>
             <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, recipe)">
             <i class="fa fa-remove"></i>Delete</button>
-          <button class="btn btn-sm btn-warning">
+          <button class="btn btn-sm btn-warning" (click)="openAdd(contentAdd, recipe)">
             <i class="fa fa-plus"></i>Add to List</button>
         </td>
       </tr>
@@ -48,10 +48,6 @@
     <ol>
       <li *ngFor="let step of stepsDisplay">{{step.step}}</li>
     </ol>
-
-    <button class="btn btn-sm btn-warning">
-      <i class="fa fa-plus"></i>Add to List</button>
-
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
@@ -69,6 +65,27 @@
       <h2>Are you sure you want to delete this record.</h2>
       <div class="border text-center">
         <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">Yes, Delete!</button>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+    </div>
+  </ng-template>
+
+  <ng-template #contentAdd let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Add to List</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h2>Adding:</h2>
+      <ul *ngFor="let ingredient of addList">
+        <li>{{ingredient}}</li>
+      </ul>
+      <div class="border text-center">
+        <button data-dismiss="modal" class="btn btn-danger" (click)="onAdd()">Yes, add to list!</button>
       </div>
     </div>
     <div class="modal-footer">

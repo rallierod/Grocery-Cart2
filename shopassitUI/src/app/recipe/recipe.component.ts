@@ -4,6 +4,7 @@ import { Ingredient } from '../ingredient/ingredient.component';
 import { Step } from '../step/step.component';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { RecipeService } from '../recipe.service';
+import { ListItemService } from '../list-item.service';
 
 export class Recipe {
   constructor(
@@ -31,7 +32,9 @@ export class RecipeComponent implements OnInit {
   ingredientsDisplay: Ingredient[] = [];
   stepsDisplay: Step[] = [];
 
-  constructor(private httpClient: HttpClient, private modalService: NgbModal, private recipeService: RecipeService) { }
+  addList: string[] = [];
+
+  constructor(private httpClient: HttpClient, private modalService: NgbModal, private recipeService: RecipeService, private listItemService: ListItemService) { }
 
   ngOnInit(): void {
     this.getRecipes();
@@ -93,5 +96,23 @@ export class RecipeComponent implements OnInit {
       });
   }
   
+  openAdd(targetModal: any, recipe: Recipe) {
+    this.addList.splice(0,this.addList.length);
+    console.log(this.addList);
+    for(let i = 0; i < recipe.ingredients.length; i++) {
+      this.addList.push(recipe.ingredients[i].ingredient);
+    }
+    console.log(this.addList);
+    this.modalService.open(targetModal, {
+      backdrop: 'static',
+      size: 'lg'
+    });
+  }
 
+  onAdd() {
+    this.listItemService.addListItems(this.addList).subscribe((results) => {
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    });
+  }
 }
