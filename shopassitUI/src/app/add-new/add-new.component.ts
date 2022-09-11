@@ -28,6 +28,8 @@ export class AddNewComponent implements OnInit {
 
   recipeId: number = 0;
 
+  deleteId: number = 0;
+
   constructor(private httpClient: HttpClient, private modalService: NgbModal, private router: Router, private recipeService: RecipeService) { }
 
   ngOnInit() {
@@ -183,5 +185,41 @@ export class AddNewComponent implements OnInit {
 
     //TODO: reload to recipe page
     this.router.navigate(['/home']);
+  }
+
+  openRemoveIngredient(targetModal: any, ingredient: Ingredient) {
+    for (let i = 0; i < this.ingredients.length; i++) {
+      if(this.ingredients[i].amount == ingredient.amount && this.ingredients[i].unit == ingredient.unit && this.ingredients[i].ingredient == ingredient.ingredient) {
+        this.deleteId = i;
+      }
+    }
+    this.modalService.open(targetModal, {
+      backdrop: 'static',
+      size: 'lg'
+    });
+  }
+
+  onRemoveIngredient() {
+    this.ingredients.splice(this.deleteId,1);
+    this.ngOnInit();
+    this.modalService.dismissAll();
+  }
+
+  openRemoveStep(targetModal: any, step: Step) {
+    for (let i = 0; i < this.steps.length; i++) {
+      if(this.steps[i].step == step.step) {
+        this.deleteId = i;
+      }
+    }
+    this.modalService.open(targetModal, {
+      backdrop: 'static',
+      size: 'lg'
+    });
+  }
+
+  onRemoveStep() {
+    this.steps.splice(this.deleteId,1);
+    this.ngOnInit();
+    this.modalService.dismissAll();
   }
 }
