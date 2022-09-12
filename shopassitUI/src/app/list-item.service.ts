@@ -24,4 +24,9 @@ export class ListItemService {
     const url = "http://localhost:8080/listitems/addnewrecipe";
     return this.http.post<ListItem[]>(url, listItems);
   }
+
+  public deleteListItem(id: number): Observable<{}> {
+    const deleteURL = 'http://localhost:8080/listitems/' + id + '/delete';
+    return this.http.delete(deleteURL);
+  }
 }

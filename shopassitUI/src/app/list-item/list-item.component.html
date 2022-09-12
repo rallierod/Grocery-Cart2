@@ -1,8 +1,13 @@
 <h1>Shopping List:</h1>
-<ul *ngFor="let listItem of list">
-    <li>{{listItem}}</li>
-</ul>
-
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let listItem of list" cdkDrag>{{listItem}} <button>Remove</button></div>
+<br>
+<div>
+    <button mat-raised-button color="primary" class="border-button">Add Item</button>
+    <button mat-raised-button color="primary" class="border-button">Clear List</button>
 </div>
+<br>
+<div>
+    <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let listItem of list" cdkDrag>{{listItem}} <button (click)="onRemove(listItem)">Remove</button></div>
+    </div>
+</div>
+

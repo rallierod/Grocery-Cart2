@@ -46,3 +46,10 @@
   .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
+
+.border-button {
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  margin: 5px;
+}

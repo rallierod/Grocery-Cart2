@@ -49,4 +49,15 @@ export class ListItemComponent implements OnInit {
     moveItemInArray(this.list, event.previousIndex, event.currentIndex);
   }
 
+  onRemove(listItem: string) {
+    for(let i = 0; i < this.getList.length; i++) {
+      if(this.getList[i].listItem === listItem) {
+        this.listItemService.deleteListItem(this.getList[i].id).subscribe((results) => {
+          this.list.splice(0,this.list.length);
+          this.ngOnInit();
+        });
+      }
+    }
+  }
+
 }
