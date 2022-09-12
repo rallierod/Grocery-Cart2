@@ -25,6 +25,15 @@ public class ListItemController {
         listItemRepository.save(listItem);
     }
 
+    @PostMapping("listitems/addnewrecipe")
+    public void addListItems(@RequestBody String[] listItems) {
+        for(int i = 0; i < listItems.length; i++) {
+            ListItem listItem = new ListItem();
+            listItem.setListItem(listItems[i]);
+            listItemRepository.save(listItem);
+        }
+    }
+
     @PutMapping("listitems/{id}/edit")
     public void editListItem(@PathVariable("id") Integer id, @RequestBody ListItem listItem) {
         listItemRepository.save(listItem);
