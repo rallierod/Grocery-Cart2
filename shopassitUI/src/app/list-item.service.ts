@@ -29,4 +29,10 @@ export class ListItemService {
     const deleteURL = 'http://localhost:8080/listitems/' + id + '/delete';
     return this.http.delete(deleteURL);
   }
+
+  public deleteAll(): Observable<{}> {
+    const deleteURL = 'http://localhost:8080/listitems/clearlist';
+    return this.http.delete(deleteURL);
+  }  
+
 }
