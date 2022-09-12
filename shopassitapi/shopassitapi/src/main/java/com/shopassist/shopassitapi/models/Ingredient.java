@@ -11,7 +11,7 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer amount;
+    private Float amount;
 
     private String unit;
 
@@ -23,7 +23,7 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient(Integer id, Integer amount, String unit, String ingredient) {
+    public Ingredient(Integer id, Float amount, String unit, String ingredient) {
         this.id = id;
         this.amount = amount;
         this.unit = unit;
@@ -34,11 +34,11 @@ public class Ingredient {
         return id;
     }
 
-    public Integer getAmount() {
+    public Float getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(Float amount) {
         this.amount = amount;
     }
 
