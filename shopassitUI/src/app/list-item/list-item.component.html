@@ -7,7 +7,7 @@
 <br>
 <div>
     <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let listItem of list" cdkDrag>{{listItem}} <button (click)="onRemove(listItem)">Remove</button></div>
+        <div class="example-box" *ngFor="let listItem of list" cdkDrag><mat-checkbox>{{listItem}}</mat-checkbox> <button (click)="onRemove(listItem)">Remove</button></div>
     </div>
 </div>
 

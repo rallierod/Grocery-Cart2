@@ -6,7 +6,9 @@ html, body { height: 100%; }
 body { margin: 0; font-family: poppins, "Poppins", sans-serif; }
 
 mat-button {
-    font-family: Tangerine, "Tangerine", serif;
+    font-family: poppins, "Poppins", sans-serif;
     margin: 1;
     padding: 1px;
   }
+
+ 

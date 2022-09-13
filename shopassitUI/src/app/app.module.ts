@@ -24,6 +24,19 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { LoginComponent } from './login/login.component';
 import { ListItemComponent } from './list-item/list-item.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+
+
+
+
 
 
 
@@ -38,7 +51,15 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ImportRecipeComponent,
     CreateUserComponent,
     LoginComponent,
-    ListItemComponent
+    ListItemComponent,
+    RegisterComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    BoardModeratorComponent,
+    BoardUserComponent,
+    
+
+
   ],
   imports: [
     BrowserModule,
@@ -55,11 +76,17 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatFormFieldModule,
     MatGridListModule,
     MatSidenavModule,
-    DragDropModule
+    DragDropModule,
+    MatCheckboxModule,
+    MatMenuModule,
+    MatListModule,
+    
+
   ],
-  
+
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}}
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
+    authInterceptorProviders
   ],
   bootstrap: [AppComponent]
 
